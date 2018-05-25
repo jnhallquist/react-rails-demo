@@ -1,0 +1,33 @@
+User.create!(first_name: 'Annie',
+             last_name: 'Bot',
+             job_title: 'Fireball Fiend',
+             phone_number: '(661) 555-5555',
+             email: 'annie.bot@riot.com',
+             address_1: '1812 Tibbers Lane',
+             address_2: 'Unit 2B',
+             city: 'Ashlyn',
+             state: 'Pennsylvania',
+             postal_code: '80941',
+             country: 'United States')
+
+User.create!(first_name: 'Bard',
+             last_name: 'Bot',
+             job_title: 'Meeps Maniac',
+             phone_number: '(661) 555-5555',
+             email: 'bard.bot@riot.com',
+             address_1: '19806 Magical Journey Road',
+             city: 'Crabtree',
+             state: 'Missouri',
+             postal_code: '74613',
+             country: 'United States')
+
+User.create!(first_name: 'Cass',
+             last_name: 'Bot',
+             phone_number: '(661) 555-5555',
+             extension: 'x48',
+             email: 'cass.bot@riot.com',
+             address_1: '5681 Noshoes Drive',
+             city: 'Riven',
+             state: 'Arizona',
+             postal_code: '10844',
+             country: 'United States')
