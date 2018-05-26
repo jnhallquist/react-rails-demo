@@ -13,19 +13,19 @@ export default class UsersIndex extends Component {
   componentWillMount() {
     fetch('http://localhost:3000/users')
     .then(response => response.json())
-    .then(users => {
-      this.setState({ users: users });
+    .then((users) => {
+      this.setState({ users });
     });
   }
 
   render() {
     return (
       <ListGroup>
-        { this.state.users.map((user, index) => {
-          return (
-            <ListGroupItem key={index} href={`/users/${index + 1}`}>{user.first_name} {user.last_name}</ListGroupItem>
-          )
-        })}
+        { this.state.users.map(user => (
+          <ListGroupItem key={user.id} href={`/users/${user.id}`}>
+            {user.first_name} {user.last_name}
+          </ListGroupItem>
+        ))}
       </ListGroup>
     )
   }
