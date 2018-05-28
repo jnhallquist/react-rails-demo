@@ -1,12 +1,7 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import {
   Button,
-  Col,
-  ControlLabel,
-  Form,
-  FormControl,
-  FormGroup,
-  HelpBlock,
   Modal,
   Panel
 } from 'react-bootstrap';
@@ -23,6 +18,16 @@ export default class UserProfile extends Component {
 
     this.handleShow = this.handleShow.bind(this);
     this.handleClose = this.handleClose.bind(this);
+    this.handleSuccessfulUpdate = this.handleSuccessfulUpdate.bind(this);
+  }
+
+  componentWillMount() {
+    const { userId } = this.props.id;
+    fetch(`http://localhost:3000/users/${userId}`)
+    .then(response => response.json())
+    .then((user) => {
+      this.setState({ user });
+    });
   }
 
   handleShow() {
@@ -33,19 +38,9 @@ export default class UserProfile extends Component {
     this.setState({ show: false });
   }
 
-  handleSuccessfulUpdate = (data) => {
+  handleSuccessfulUpdate(data) {
     const updatedUser = data;
     this.setState({ user: updatedUser });
-  }
-
-  componentWillMount() {
-    const userId = this.props.match.params.id;
-
-    fetch(`http://localhost:3000/users/${userId}`)
-    .then(response => response.json())
-    .then(user => {
-      this.setState({ user: user });
-    });
   }
 
   render() {
@@ -64,7 +59,11 @@ export default class UserProfile extends Component {
             <p>{this.state.user.email}</p>
             <p>{this.state.user.address_1}</p>
             <p>{this.state.user.address_2}</p>
-            <p>{this.state.user.city}, {this.state.user.state} {this.state.user.postal_code}</p>
+            <p>
+              {this.state.user.city},
+              {this.state.user.state}
+              {this.state.user.postal_code}
+            </p>
             <p>{this.state.user.country}</p>
           </Panel.Body>
         </Panel>
@@ -76,13 +75,21 @@ export default class UserProfile extends Component {
             <Modal.Title>Edit User Profile</Modal.Title>
           </Modal.Header>
           <Modal.Body>
-            <EditForm user={this.state.user} handleSuccessfulUpdate={this.handleSuccessfulUpdate.bind(this)} handleClose={this.handleClose.bind(this)}/>
+            <EditForm
+              user={this.state.user}
+              handleSuccessfulUpdate={this.handleSuccessfulUpdate}
+              handleClose={this.handleClose}
+            />
           </Modal.Body>
           <Modal.Footer>
             <Button onClick={this.handleClose}>Close</Button>
           </Modal.Footer>
         </Modal>
       </div>
-    )
+    );
   }
 }
+
+UserProfile.propTypes = {
+  id: PropTypes.number.isRequired
+};

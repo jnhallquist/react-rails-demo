@@ -22,7 +22,7 @@ export default class UsersIndex extends Component {
     return (
       <ListGroup>
         { this.state.users.map(user => (
-          <ListGroupItem key={user.id} href={`/users/${user.id}`}>
+          <ListGroupItem key={user.id} href={`/users/${user.id}`} id={user.id}>
             {user.first_name} {user.last_name}
           </ListGroupItem>
         ))}

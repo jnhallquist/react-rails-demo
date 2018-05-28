@@ -1,5 +1,4 @@
 import React from 'react';
-import { render } from 'react-dom';
 import { Nav, Navbar, NavItem } from 'react-bootstrap';
 
 const TopNav = () => (
@@ -14,6 +13,6 @@ const TopNav = () => (
       <NavItem href="/users/1">User</NavItem>
     </Nav>
   </Navbar>
-)
+);
 
 export default TopNav;
