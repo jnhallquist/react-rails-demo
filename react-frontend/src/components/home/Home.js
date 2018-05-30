@@ -14,7 +14,9 @@ const Home = () => (
         from which you may view and edit a demo user{"'"}s profile.
       </p>
       <p>
-        <Button bsStyle="primary" href="#">Source Code</Button>
+        <Button bsStyle="primary" href="https://github.com/jnhallquist/demo-react-frontend" target="_blank">
+          Source Code
+        </Button>
       </p>
     </Jumbotron>
   </div>
