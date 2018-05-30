@@ -47,6 +47,7 @@ export default class UserProfile extends Component {
   render() {
     return (
       <div>
+        {this.state.user.first_name &&
         <Panel>
           <Panel.Heading>
             <Panel.Title>
@@ -69,6 +70,7 @@ export default class UserProfile extends Component {
             <p>{this.state.user.country}</p>
           </Panel.Body>
         </Panel>
+        }
         <Button onClick={this.handleShow}>
           Edit Profile
         </Button>
