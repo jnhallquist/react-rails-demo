@@ -1,16 +1,21 @@
 import React from 'react';
-import { Nav, Navbar, NavItem } from 'react-bootstrap';
+import { Glyphicon, Nav, Navbar, NavItem } from 'react-bootstrap';
 
 const TopNav = () => (
   <Navbar staticTop>
     <Navbar.Header>
       <Navbar.Brand>
-        <a href="/">Home</a>
+        <a href="/"><Glyphicon glyph="home" /></a>
       </Navbar.Brand>
     </Navbar.Header>
     <Nav>
-      <NavItem href="/users">All Users</NavItem>
-      <NavItem href="/users/1">User</NavItem>
+      <NavItem href="/users">Users</NavItem>
+      <NavItem href="/">NavItem</NavItem>
+      <NavItem href="/">Another NavItem</NavItem>
+    </Nav>
+    <Nav pullRight>
+      <NavItem href="/">Sign Up</NavItem>
+      <NavItem href="/">Login</NavItem>
     </Nav>
   </Navbar>
 );
