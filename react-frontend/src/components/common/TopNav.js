@@ -10,8 +10,8 @@ const TopNav = () => (
     </Navbar.Header>
     <Nav>
       <NavItem href="/users">Users</NavItem>
-      <NavItem href="/">Plans</NavItem>
-      <NavItem href="/">Distributions</NavItem>
+      <NavItem href="/">NavItem</NavItem>
+      <NavItem href="/">Another NavItem</NavItem>
     </Nav>
     <Nav pullRight>
       <NavItem href="/">Sign Up</NavItem>
