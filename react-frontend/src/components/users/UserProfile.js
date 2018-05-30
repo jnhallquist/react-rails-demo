@@ -8,13 +8,15 @@ import {
 import EditForm from './UserProfileEditForm';
 
 export default class UserProfile extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+
+    this.routeParam = props.match.params.id;
 
     this.state = {
       user: {},
       show: false
-    }
+    };
 
     this.handleShow = this.handleShow.bind(this);
     this.handleClose = this.handleClose.bind(this);
@@ -22,8 +24,7 @@ export default class UserProfile extends Component {
   }
 
   componentWillMount() {
-    const { userId } = this.props.id;
-    fetch(`http://localhost:3000/users/${userId}`)
+    fetch(`http://localhost:3000/users/${this.routeParam}`)
     .then(response => response.json())
     .then((user) => {
       this.setState({ user });
@@ -60,9 +61,10 @@ export default class UserProfile extends Component {
             <p>{this.state.user.address_1}</p>
             <p>{this.state.user.address_2}</p>
             <p>
-              {this.state.user.city},
-              {this.state.user.state}
-              {this.state.user.postal_code}
+              {
+                `${this.state.user.city}, ${this.state.user.state}
+                ${this.state.user.postal_code}`
+              }
             </p>
             <p>{this.state.user.country}</p>
           </Panel.Body>
@@ -91,5 +93,5 @@ export default class UserProfile extends Component {
 }
 
 UserProfile.propTypes = {
-  id: PropTypes.number.isRequired
+  match: PropTypes.func.isRequired
 };

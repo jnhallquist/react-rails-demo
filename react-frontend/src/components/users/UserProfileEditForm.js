@@ -31,49 +31,51 @@ export default class UserProfileEditForm extends Component {
       postal_code: this.props.user.postal_code,
       country: this.props.user.country,
       formErrors: []
-    }
+    };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.validateForm = this.validateForm.bind(this);
   }
 
   validateForm() {
+    console.log(this.state)
     const validationErrors = [];
 
     if (validator.isEmpty(this.state.first_name)) {
-      validationErrors.push('First Name cannot be left blank')
+      validationErrors.push('First Name cannot be left blank');
     }
 
     if (validator.isEmpty(this.state.last_name)) {
-      validationErrors.push('Last Name cannot be left blank')
+      validationErrors.push('Last Name cannot be left blank');
     }
 
     if (validator.isEmpty(this.state.phone_number)) {
-      validationErrors.push('Phone Number cannot be left blank')
+      validationErrors.push('Phone Number cannot be left blank');
     }
 
     if (!validator.isMobilePhone(this.state.phone_number, 'any')) {
-      validationErrors.push('Phone Number is invalid')
+      validationErrors.push('Phone Number is invalid');
     }
 
     if (validator.isEmpty(this.state.email)) {
-      validationErrors.push('Email Address cannot be left blank')
+      validationErrors.push('Email Address cannot be left blank');
     }
 
     if (!validator.isEmail(this.state.email)) {
-      validationErrors.push('Email Address is invalid')
+      validationErrors.push('Email Address is invalid');
     }
 
     if (validator.isEmpty(this.state.address_1)) {
-      validationErrors.push('Address 1 cannot be left blank')
+      validationErrors.push('Address 1 cannot be left blank');
     }
 
     if (validator.isEmpty(this.state.city)) {
-      validationErrors.push('City cannot be left blank')
+      validationErrors.push('City cannot be left blank');
     }
 
     if (validator.isEmpty(this.state.postal_code)) {
-      validationErrors.push('Postal Code cannot be left blank')
+      validationErrors.push('Postal Code cannot be left blank');
     }
 
     if (validationErrors.length === 0) {
@@ -299,7 +301,7 @@ export default class UserProfileEditForm extends Component {
           <Button bsStyle="primary" onClick={this.validateForm}>Save</Button>
         </Form>
       </div>
-    )
+    );
   }
 }
 

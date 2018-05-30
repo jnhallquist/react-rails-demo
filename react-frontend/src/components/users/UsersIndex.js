@@ -7,7 +7,7 @@ export default class UsersIndex extends Component {
 
     this.state = {
       users: []
-    }
+    };
   }
 
   componentWillMount() {
@@ -22,11 +22,11 @@ export default class UsersIndex extends Component {
     return (
       <ListGroup>
         { this.state.users.map(user => (
-          <ListGroupItem key={user.id} href={`/users/${user.id}`} id={user.id}>
+          <ListGroupItem key={user.id} href={`/users/${user.id}`}>
             {user.first_name} {user.last_name}
           </ListGroupItem>
         ))}
       </ListGroup>
-    )
+    );
   }
 }
